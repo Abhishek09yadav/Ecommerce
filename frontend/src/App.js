@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Shop from "./Pages/Shop";
 import ShopCategory from "./Pages/ShopCategory";
+import Product from "./Pages/Product";
 
 
 function App() {
@@ -16,7 +17,10 @@ function App() {
                     <Route path='/' element={<Shop/>}/>
                     <Route path='/mens' element={<ShopCategory category='men'/>}/>
                     <Route path='/kids' element={<ShopCategory category='kid'/>}/>
-                    <Route path='/women' element={<ShopCategory category='women'/>}/>
+                    <Route path='/womens' element={<ShopCategory category='women'/>}/>
+                    <Route path='product' element={<Product/>}/>
+                    <Route path=':productId' element={<Product/>}/>
+
                 </Routes>
             </BrowserRouter>
 

@@ -29,6 +29,17 @@
     color: #626262;
     font-weight: 500;
     font-size: 15px;
+
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-menu a:hover {
+    text-decoration: none;
+    
 }
 
 .nav-menu li {

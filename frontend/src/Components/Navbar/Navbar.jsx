@@ -4,6 +4,7 @@ import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import {Link} from "react-router-dom";
 
 
 function Navbar(props) {
@@ -17,22 +18,25 @@ function Navbar(props) {
             <ul className="nav-menu">
                 <li onClick={() => {
                     setmenu("shop")
-                }}>Shop{menu === 'shop' ? <hr/> : <></>}
-                </li>
-                <li onClick={() => setmenu('men')}>Men{menu === 'men' ? <hr></hr> : <></>}
+                }}><Link to={'/'}>Shop</Link> {menu === 'shop' ? <hr/> : <></>}</li>
+                <li onClick={() => setmenu('mens')}><Link to='/mens'>Men</Link> {menu === 'men' ? <hr></hr> : <></>}
                 </li>
                 <li onClick={() => {
                     setmenu("womens")
-                }}>Women{menu === 'womens' ? <hr/> : <></>}
+                }}><Link to={'/womens'}>Women</Link> {menu === 'womens' ? <hr/> : <></>}
                 </li>
                 <li onClick={() => {
                     setmenu("kids")
-                }}>Kids{menu === 'kids' ? <hr/> : <></>}
+                }}><Link to={'/kids'}>Kids</Link> {menu === 'kids' ? <hr/> : <></>}
                 </li>
             </ul>
             <ul className="nav-login-cart">
-                <button type="button" className="btn btn-secondary rounded-pill">Login</button>
-                <img src={cart_icon} alt="" className=""/>
+                < Link to={'/login'}>
+                    <button type="button" className="btn btn-secondary rounded-pill">Login</button>
+                </Link>
+                <Link to='/cart'> <img src={cart_icon} alt="" className=""/>
+
+                </Link>
                 <div className="nav-cart-count">0</div>
             </ul>
 
