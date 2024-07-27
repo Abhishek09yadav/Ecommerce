@@ -6,6 +6,17 @@
 
 }
 
+.btn {
+    background-color: #e74c3c;
+    color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
 .hero-left {
     flex: 1;
     display: flex;
