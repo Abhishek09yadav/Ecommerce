@@ -4,6 +4,7 @@ import './Popular.css'
 import data_product from "../Assets/data";
 import Item from "../item/item";
 
+
 const Popular = () => {
     return (
         <div className={'Popular'}>
@@ -15,6 +16,7 @@ const Popular = () => {
                                  old_price={item.old_price}/>
                 })}
             </div>
+
         </div>
     );
 };

@@ -2,23 +2,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    /*justify-content: center;*/
     gap: 10px;
     height: 90vh;
+    margin-top: 200px;
 }
 
-.popular {
+.Popular h1 {
+    margin-top: 50px;
     color: #171717;
     font-size: 50px;
     font-weight: 600;
 }
 
+.popular-item {
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+}
+
 .Popular hr {
+
     width: 200px;
     height: 6px;
+
     border-radius: 10px;
-    background: #535252;
+    margin: 10px;
+    background: #252525;
 }
 
 .popular-item {
