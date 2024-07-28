@@ -4,13 +4,12 @@
 }
 
 .item p {
-    margin: 6px 0px;
+    margin: 6px 0;
 }
 
 .item-price {
     display: flex;
     gap: 20px;
-
 }
 
 .item-price-new {
