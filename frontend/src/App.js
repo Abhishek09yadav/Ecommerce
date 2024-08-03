@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Shop from "./Pages/Shop";
 import ShopCategory from "./Pages/ShopCategory";
 import Product from "./Pages/Product";
+import Footer from "./Components/Footer/Footer";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                     <Route path=':productId' element={<Product/>}/>
 
                 </Routes>
+                <Footer/>
             </BrowserRouter>
 
         </div>
