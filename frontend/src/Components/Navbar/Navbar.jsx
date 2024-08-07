@@ -10,6 +10,10 @@ import {Link} from "react-router-dom";
 function Navbar(props) {
 
     const [menu, setmenu] = useState("shop");
+
+    const scrollDown = () => {
+        window.scrollBy(0, 110);
+    }
     return (<div className="navbar">
             <div className="nav-logo">
                 <img src={logo}/>
@@ -32,7 +36,7 @@ function Navbar(props) {
             </ul>
             <ul className="nav-login-cart">
                 < Link to={'/login'}>
-                    <button type="button" className="btn btn-secondary rounded-pill">Login</button>
+                    <button type="button" className="btn btn-secondary rounded-pill" onClick={scrollDown}>Login</button>
                 </Link>
                 <Link to='/cart'> <img src={cart_icon} alt="" className=""/>
 
