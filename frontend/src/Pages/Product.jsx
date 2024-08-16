@@ -8,8 +8,8 @@ function Product(props) {
     const {all_product} = useContext(ShopContext);
     const {productId} = useParams()
     console.log(productId);
-    console.log('context value is ', all_product[0])
-    console.log('all_products:', all_product);
+    // console.log('context value is ', all_product[0])
+    // console.log('all_products:', all_product);
     const product = all_product.find((e) => e.id === Number(productId))
 
 
