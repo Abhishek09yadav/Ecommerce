@@ -1,0 +1,22 @@
+.RelatedProducts {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 90vh;
+    margin-bottom: 100px;
+}
+
+.RelatedProducts h1 {
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.RelatedProducts hr {
+    width: 100%;
+}
+
+.RelatedProducts-item {
+
+}
