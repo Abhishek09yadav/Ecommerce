@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './ProductDisplay.css';
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
 import arrow_icon from "../Assets/arrow.png";
+import {ShopContext} from "../../Context/ShopContext";
+
 
 const ProductDisplay = (props) => {
-    console.log(props)
+    // console.log(props)
+    const {addToCart} = useContext(ShopContext);
+
     const {product} = props;
     return (
         <div className='productdisplay'>
@@ -56,7 +60,9 @@ const ProductDisplay = (props) => {
                     </div>
                 </div>
                 <button type="button" className="btn btn-lg btn-danger "
-                        style={{backgroundColor: '#ff4141', color: '#fff'}}> Add To
+                        style={{backgroundColor: '#ff4141', color: '#fff'}} onClick={() => {
+                    addToCart(product.id);
+                }}> Add To
                     Cart{' '}
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                          className="bi bi-cart4" viewBox="0 0 16 16">
