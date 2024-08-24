@@ -1,0 +1,37 @@
+.CartItems {
+    margin: 100px 170px;
+}
+
+.CartItems hr {
+    height: 3px;
+    background: #e2e2e2;
+    border: 0;
+}
+
+.CartItems-format-main {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 75px;
+    padding: 20px 10px;
+    color: #454545;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.CartItems-format {
+
+}
+
+.CartIcons-product-icon {
+
+}
+
+.CartItems-quantity {
+
+}
+
+.CartItems-image {
+
+}

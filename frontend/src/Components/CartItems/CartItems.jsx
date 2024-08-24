@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './CartItems.css'
 import all_product from "../Assets/all_product";
 import {ShopContext} from "../../Context/ShopContext";
 import remove_icon from "../Assets/cart_cross_icon.png";
+
 
 const CartItems = () => {
     const {all_product, cartItems, addToCart, removeFromCart} =
@@ -20,16 +21,36 @@ const CartItems = () => {
             </div>
             <hr/>
             <div>
-                <div className="CartItems-format">
-                    <img src="" alt="" className="CartIcons-product-icon"/>
-                    <p></p>
-                    <p></p>
-                    <button className="CartItems-quantity">
 
-                    </button>
-                    <p></p>
-                    <img className="CartItems-image" src="" alt=""/>
-                </div>
+                {all_product.map((e) => {
+                    if (cartItems[e.id] > 0) {
+                        return <div className="CartItems-format">
+                            <img src={e.image} alt="" className="CartIcons-product-icon"/>
+
+                            <p>{e.name}</p>
+                            <p>${e.new_price}</p>
+
+                            <button type="button" className="btn btn-lg btn-danger CartItems-quantity"
+                                    style={{backgroundColor: '#ff4141', color: '#fff'}} onClick={() => {
+
+                            }}> {cartItems[e.id]}
+
+                            </button>
+
+                            <p>{e.new_price * cartItems[e.id]}</p>
+                            <img className="CartItems-image" src={remove_icon} onClick={() => {
+                                removeFromCart(e.id)
+                            }}/>
+
+                            {/*<i className="fas fa-plus" onClick={() => {*/}
+                            {/*    addToCart(e.id)*/}
+                            {/*}}>add</i>*/}
+
+                            <hr/>
+
+                        </div>
+                    }
+                })}
             </div>
         </div>
     );
