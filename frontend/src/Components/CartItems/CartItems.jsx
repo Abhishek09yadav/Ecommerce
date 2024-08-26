@@ -30,7 +30,7 @@ const CartItems = () => {
                             <p>{e.name}</p>
                             <p>${e.new_price}</p>
 
-                            <button type="button" className="btn btn-lg btn-danger CartItems-quantity"
+                            <button type="button" className="btn btn-sm  CartItems-quantity"
                                     style={{backgroundColor: '#ff4141', color: '#fff'}} onClick={() => {
 
                             }}> {cartItems[e.id]}
@@ -42,9 +42,11 @@ const CartItems = () => {
                                 removeFromCart(e.id)
                             }}/>
 
-                            {/*<i className="fas fa-plus" onClick={() => {*/}
-                            {/*    addToCart(e.id)*/}
-                            {/*}}>add</i>*/}
+                            <i className="bi bi-plus"
+                               onClick={() => addToCart(e.id)}
+                               style={{cursor: 'pointer'}}>
+                            </i>
+
 
                             <hr/>
 
