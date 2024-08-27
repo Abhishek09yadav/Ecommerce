@@ -21,11 +21,18 @@
 }
 
 .CartItems-format {
-
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .CartIcons-product-icon {
+    height: 62px;
+}
 
+.CartItems-Remove-Icon {
+    cursor: pointer;
+    margin: 0 40px;
+    width: 15px;
 }
 
 .CartItems-quantity {

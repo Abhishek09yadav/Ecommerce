@@ -24,21 +24,21 @@ const CartItems = () => {
 
                 {all_product.map((e) => {
                     if (cartItems[e.id] > 0) {
-                        return <div className="CartItems-format">
+                        return <div className="CartItems-format CartItems-format-main">
                             <img src={e.image} alt="" className="CartIcons-product-icon"/>
 
                             <p>{e.name}</p>
                             <p>${e.new_price}</p>
 
-                            <button type="button" className="btn btn-sm  CartItems-quantity"
-                                    style={{backgroundColor: '#ff4141', color: '#fff'}} onClick={() => {
+                            <button type="button" className="btn btn-light  CartItems-quantity"
+                                    style={{backgroundColor: '#ecf0f1', color: "black"}} onClick={() => {
 
                             }}> {cartItems[e.id]}
 
                             </button>
 
                             <p>{e.new_price * cartItems[e.id]}</p>
-                            <img className="CartItems-image" src={remove_icon} onClick={() => {
+                            <img className="CartItems-Remove-Icon" src={remove_icon} onClick={() => {
                                 removeFromCart(e.id)
                             }}/>
 
@@ -47,13 +47,38 @@ const CartItems = () => {
                                style={{cursor: 'pointer'}}>
                             </i>
 
-
                             <hr/>
-
                         </div>
                     }
+                    return null;
                 })}
+                <div className="CartItems-down">
+                    <div className="CartItems-total">
+                        <h1>
+                            Cart Totals
+                        </h1>
+                        <div>
+                            <div className="CartItems-total-item">
+                                <p>Subtotal</p>
+                                <p>{0}</p>
+                                <hr className={'CartItems-total-item'}/>
+                                <p>Shipping fee</p>
+                                <p>Free</p>
+                            </div>
+                            <hr/>
+                            <div className="CartItems-total-item">
+                                <h3>Total</h3>
+                                <h3>${0}</h3>
+                            </div>
+                        </div>
+                        <button type="button" className="btn btn-light"
+                                style={{color: "#ecf0f1"}}>
+                            Proceed To Checkout
+                        </button>
+                    </div>
+                </div>
             </div>
+            {/*<hr/>*/}
         </div>
     );
 };
