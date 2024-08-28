@@ -3,6 +3,7 @@ import './CartItems.css'
 import all_product from "../Assets/all_product";
 import {ShopContext} from "../../Context/ShopContext";
 import remove_icon from "../Assets/cart_cross_icon.png";
+import Button from "@mui/material/Button";
 
 
 const CartItems = () => {
@@ -72,9 +73,19 @@ const CartItems = () => {
                             </div>
                         </div>
                         <button type="button" className="btn btn-light"
-                                style={{color: "#ecf0f1"}}>
+                                style={{color: "#ecf0f1", width: '262px'}}>
                             Proceed To Checkout
                         </button>
+                    </div>
+                    <div className="CartItems-Promocode">
+                        <p>If you have a promocode please Enter it here</p>
+                        <div className="CartItems-Promobox">
+                            <input type={'text'} placeholder={'Enter your promocode'}/>
+                            <button type="submit" className="btn btn-primary border-0 CartItems-Promocode-Button">Submit
+                            </button>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

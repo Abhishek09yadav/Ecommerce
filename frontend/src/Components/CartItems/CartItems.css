@@ -42,3 +42,63 @@
 .CartItems-image {
 
 }
+
+.CartItems-down {
+    display: flex;
+    margin: 100px 0;
+}
+
+.CartItems-total {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-right: 200px;
+    gap: 40px;
+
+}
+
+.CartItems-total-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+
+.CartItems-Promocode {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.CartItems-Promocode p {
+    color: #454545;
+}
+
+.CartItems-Promobox {
+    width: 430px;
+    margin-top: 15px;
+    padding-left: 20px;
+    height: 58px;
+    background: #eaeaea;
+    padding-top: 10px;
+    border-radius: 3px;
+}
+
+.CartItems-Promobox input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    width: 330px;
+
+    /*height: 50px;*/
+
+}
+
+.CartItems-Promocode-Button {
+    width: 70px;
+    height: 40px;
+    font-size: 16px;
+    background: black;
+    color: white;
+
+}
