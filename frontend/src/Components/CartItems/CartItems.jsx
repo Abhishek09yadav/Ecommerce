@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 
 
 const CartItems = () => {
-    const {all_product, cartItems, addToCart, removeFromCart} =
+    const {getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart} =
         useContext(ShopContext);
     return (
         <div className={'CartItems'}>
@@ -61,7 +61,7 @@ const CartItems = () => {
                         <div>
                             <div className="CartItems-total-item">
                                 <p>Subtotal</p>
-                                <p>{0}</p>
+                                <p>${getTotalCartAmount()}</p>
                                 <hr className={'CartItems-total-item'}/>
                                 <p>Shipping fee</p>
                                 <p>Free</p>
@@ -69,7 +69,7 @@ const CartItems = () => {
                             <hr/>
                             <div className="CartItems-total-item">
                                 <h3>Total</h3>
-                                <h3>${0}</h3>
+                                <h3>${getTotalCartAmount()}</h3>
                             </div>
                         </div>
                         <button type="button" className="btn btn-light"
