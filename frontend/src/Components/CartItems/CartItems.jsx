@@ -4,6 +4,8 @@ import all_product from "../Assets/all_product";
 import {ShopContext} from "../../Context/ShopContext";
 import remove_icon from "../Assets/cart_cross_icon.png";
 import Button from "@mui/material/Button";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
 
 const CartItems = () => {
@@ -75,6 +77,7 @@ const CartItems = () => {
                         <button type="button" className="btn btn-light"
                                 style={{color: "#ecf0f1", width: '262px'}}>
                             Proceed To Checkout
+                            <FontAwesomeIcon icon={faArrowRight} style={{paddingLeft: '10px'}}/>
                         </button>
                     </div>
                     <div className="CartItems-Promocode">
