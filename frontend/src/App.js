@@ -12,6 +12,9 @@ import kids_banner from "./Components/Assets/banner_kids.png"
 import LoginSignup from "./Pages/LoginSignup";
 import Cart from "./Pages/Cart";
 
+// Import Font Awesome CSS globally
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
     return (
