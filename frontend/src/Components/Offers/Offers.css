@@ -173,3 +173,12 @@
     }
 
 }
+
+@media (max-width: 500px) {
+    .offers {
+        /*margin-bottom: 50px;*/
+        width: 320px;
+        height: 35vh;
+        margin-top: 350px;
+    }
+}

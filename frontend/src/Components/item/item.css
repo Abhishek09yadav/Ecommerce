@@ -88,12 +88,16 @@
 
 @media (max-width: 500px) {
     .item {
-        width: 160px;
+        width: 140px;
     }
 
     .item img {
-        width: 160px;
+        width: 140px;
     }
 
-   
+    .item-price-new {
+        font-size: 13px;
+    }
+
+
 }

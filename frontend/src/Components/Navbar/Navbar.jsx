@@ -25,7 +25,6 @@ function Navbar(props) {
         <div className="nav-logo">
             <img src={logo}/>
             <p>SHOPPER</p>
-            <FontAwesomeIcon icon="fa-light fa-square-caret-right"/>
         </div>
         <FontAwesomeIcon onClick={dropdown_toggle} className={'nav-dropdown'} icon={faSquareCaretRight}/>
 

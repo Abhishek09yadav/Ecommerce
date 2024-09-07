@@ -160,7 +160,8 @@
 
 @media (max-width: 800px) {
     .navbar {
-        padding: 10px 0;
+        padding: 10px;
+
     }
 
     .nav-dropdown {
@@ -192,20 +193,39 @@
 @media (max-width: 500px) {
     .navbar {
         width: 8px 0px;
+        position: relative;
         gap: 0;
     }
 
     .nav-logo {
-        transform: scale(0.8);
+        transform: scale(0.6);
+    }
+
+    .nav-logo img {
+        padding-bottom: 33px;
+    }
+
+    .nav-logo p {
+        font-size: 22px;
     }
 
     .nav-menu {
         height: 70px;
         top: 50px;
+        font-size: 12px;
+        gap: 15px;
 
+    }
+
+    .nav-dropdown {
+        display: block;
+        width: 20px;
+        transition: 0.5s;
     }
 
     .nav-login-cart {
-        transform: scale(0.8);
+        transform: scale(0.6);
+        padding: 0;
     }
 }
+

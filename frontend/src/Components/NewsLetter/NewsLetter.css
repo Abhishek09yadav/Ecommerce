@@ -125,6 +125,7 @@
 
 @media (max-width: 800px) {
     .NewsLetter {
+
         margin-bottom: 30px;
         height: 45vh;
     }
@@ -160,7 +161,7 @@
 
 @media (max-width: 500px) {
     .NewsLetter {
-
+        margin-left: 0;
         width: 100%;
         gap: 15px;
         padding: 0;

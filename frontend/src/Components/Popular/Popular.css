@@ -103,6 +103,7 @@
     .Popular {
         height: 90vh;
         gap: 6px;
+        margin-top: 120px;
     }
 
     .Popular h1 {
@@ -117,6 +118,7 @@
     .popular-item {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 10px;
+
     }
 }
