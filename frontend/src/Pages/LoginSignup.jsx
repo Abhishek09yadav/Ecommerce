@@ -12,7 +12,7 @@ const LoginSignup = () => {
                     <input type={'email'} placeholder={'Your Email'}/>
                     <input type={'password'} placeholder={'Your Password'}/>
                 </div>
-                <button className="btn button">Sign Up</button>
+                <button className="btn btn-lg login-signup-button">Sign Up</button>
                 <p className={'login-signup-login'}>Already have an account <span>Login</span></p>
                 <div className="login-signup-agree">
                     <input type={'checkbox'} name={''} id={''}/>
