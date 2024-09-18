@@ -28,7 +28,27 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage: storage});
 
-app.app.listen(port, (error) => {
+// schema for creating product
+const product = mongoose.model("Product", {
+    id: {
+        type: Number,
+        required: true,
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    image: {type: string, required: true},
+    category: {type: String, required: true},
+    new_price: {type: Number, required: true},
+    old_price: {type: Number, required: true},
+    date: {type: Date, default: Date.now},
+    available: {type: Boolean, required: true},
+
+
+})
+
+app.listen(port, (error) => {
     if (!error) {
         console.log(
             "server running on port " + port
@@ -37,3 +57,13 @@ app.app.listen(port, (error) => {
         console.log("Error: " + error)
     }
 })
+
+// creating upload
+app.use('/images', express.static('upload/images'));
+app.post("/upload", upload.single("product"), (req, res) => {
+    res.json({
+        success: 1,
+        image_url: `http://localhost:${port}/images/${req.file.filename}`,
+    })
+})
+
