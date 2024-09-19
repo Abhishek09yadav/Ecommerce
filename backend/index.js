@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 // schema for creating product
-const product = mongoose.model("Product", {
+const Product = mongoose.model("Product", {
     id: {
         type: Number,
         required: true,
@@ -38,16 +38,32 @@ const product = mongoose.model("Product", {
         type: String,
         required: true,
     },
-    image: {type: string, required: true},
+    image: {type: String, required: true},
     category: {type: String, required: true},
     new_price: {type: Number, required: true},
     old_price: {type: Number, required: true},
     date: {type: Date, default: Date.now},
-    available: {type: Boolean, required: true},
-
-
+    available: {type: Boolean, default: true},
 })
 
+app.post('/addProduct', async (req, res) => {
+    const product = new Product({
+        id: req.body.id,
+        name: req.body.name,
+        image: req.body.image,
+        category: req.body.category,
+        new_price: req.body.new_price,
+        old_price: req.body.old_price,
+        date: req.body.date,
+    });
+    console.log(product);
+    await product.save();
+    console.log("saved");
+    res.json({
+        success: true,
+        name: req.body.name,
+    })
+})
 app.listen(port, (error) => {
     if (!error) {
         console.log(
