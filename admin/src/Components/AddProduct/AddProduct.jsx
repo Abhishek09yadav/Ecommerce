@@ -1,6 +1,8 @@
 import React from 'react';
 import './AddProduct.css'
 
+import upload_area from '../../assets/upload_area.svg'
+
 function AddProduct(props) {
     return (
         <div className="AddProduct">
@@ -24,6 +26,18 @@ function AddProduct(props) {
             </div>
             <div className="AddProduct-itemfield">
                 <p> Product Category</p>
+                <select name={'category'} className={'AddProduct-selector'}>
+                    <option value={'women'}>Women</option>
+                    <option value={'men'}>Men</option>
+                    <option value={'kid'}>Kid</option>
+                </select>
+                <div className="AddProduct-itemfield">
+                    <label htmlFor={'file-input'}>
+                        <img src={upload_area} className={'AddProduct-thumbnail-image'} alt={''}/>
+                    </label>
+                    <input type='file' name={'image'} id='file-input' style={{display: 'none'}} hidden={true}/>
+                </div>
+                <button type="button" className="AddProduct-btn btn btn-lg">ADD</button>
             </div>
         </div>
     );
