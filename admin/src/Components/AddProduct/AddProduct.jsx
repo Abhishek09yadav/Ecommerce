@@ -37,11 +37,31 @@ function AddProduct(props) {
         }).catch(error => {
             console.error('Error during file upload:', error);
         });
-        
+
         if (responseData.success) {
             product.image = responseData.image_url;
-            console.log(product);
+            console.log('product', product);
+            await fetch('http://localhost:4000/addProduct', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'content-type': 'application/json',
+
+                },
+                body: JSON.stringify(product),
+            }).then(res => res.json()).then((data) => {
+                data.success ? alert('Successfully Added!') : alert('Failed to upload!');
+            })
         }
+
+        setProductDetails({
+            name: '',
+            image: '',
+            category: 'women',
+            new_price: '',
+            old_price: '',
+        });
+        setImage(null);
     }
 
     return (
