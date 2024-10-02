@@ -27,10 +27,11 @@ function ListProduct(props) {
                 <hr/>
 
                 {allproducts.map((product, index) => (
-                    <div key={index} className="ListProduct-format-main">
+                    <div key={index} className="ListProduct-format-main ListProduct-format">
                         <img src={product.image} alt="" className="ListProduct-product-icon"/>
                         <p>{product.name}</p>
                         <p>${product.old_price}</p>
+                        <p>${product.new_price}</p>
                         <p>${product.category}</p>
                         <img className="ListProduct-remove-icon" src={cross_icon} alt=""/>
 
