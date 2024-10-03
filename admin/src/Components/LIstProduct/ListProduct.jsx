@@ -15,32 +15,49 @@ function ListProduct(props) {
     useEffect(() => {
         fetchInfo();
     }, []);
-    return (
-        <div className={'ListProduct'}>
-            <h1>
-                All Products List
-            </h1>
-            <div className="ListProduct-format-main">
-                <p>Products</p><p>Title</p><p>Old Price</p><p>New Price</p><p>Category</p><p>Remove</p>
+    const remove_product = async (id) => {
+        await fetch('http://localhost:4000/removeProduct', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'content-type': 'application/json',
+
+            },
+            body: JSON.stringify({id: id}),
+
+        })
+        await fetchInfo();
+    }
+    return (<>
+            <div className={'ListProduct'}>
+                <h1>
+                    All Products List
+                </h1>
+                <div className="ListProduct-format-main">
+                    <p>Products</p><p>Title</p><p>Old Price</p><p>New Price</p><p>Category</p><p>Remove</p>
+                </div>
+                <div className="ListProduct-allproducts">
+                    <hr/>
+
+                    {allproducts.map((product, index) => (
+                        <div key={index} className="ListProduct-format-main ListProduct-format">
+                            <img src={product.image} alt="" className="ListProduct-product-icon"/>
+                            <p>{product.name}</p>
+                            <p>${product.old_price}</p>
+                            <p>${product.new_price}</p>
+                            <p>${product.category}</p>
+                            <img className="ListProduct-remove-icon" src={cross_icon} onClick={() => {
+                                remove_product(product.id)
+                            }} alt=""/>
+
+                        </div>))}
+
+
+                </div>
+
             </div>
-            <div className="ListProduct-allproducts">
-                <hr/>
-
-                {allproducts.map((product, index) => (
-                    <div key={index} className="ListProduct-format-main ListProduct-format">
-                        <img src={product.image} alt="" className="ListProduct-product-icon"/>
-                        <p>{product.name}</p>
-                        <p>${product.old_price}</p>
-                        <p>${product.new_price}</p>
-                        <p>${product.category}</p>
-                        <img className="ListProduct-remove-icon" src={cross_icon} alt=""/>
-
-                    </div>))}
-
-
-            </div>
-
-        </div>
+            <hr/>
+        </>
     );
 }
 

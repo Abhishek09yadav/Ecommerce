@@ -31,7 +31,7 @@
 }
 
 .ListProduct-allproducts {
-
+    overflow-y: auto;
 }
 
 .ListProduct-product-icon {
@@ -41,4 +41,26 @@
 .ListProduct-remove-icon {
     cursor: pointer;
     margin: auto;
+}
+
+@media (max-width: 800px) {
+    .ListProduct {
+        box-sizing: border-box;
+        width: 95%;
+        height: 100%;
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    .ListProduct-format-main {
+        padding: 15px 0;
+        color: #454545;
+        font-size: 12px;
+    }
+
+    .ListProduct-product-icon {
+        height: 60px;
+    }
+
+
 }
