@@ -92,7 +92,7 @@ const Users = mongoose.model('Users', {
     name: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    cartData: {type: Number},
+    cartData: {type: Object},
     date: {type: Date, default: Date.now},
 
 });
@@ -107,17 +107,18 @@ app.post('/signup', async (req, res) => {
         cart[i] = 0;
     }
     const user = new Users({
-        name: req.body.Username,
+        name: req.body.username,
         email: req.body.email,
         password: req.body.password,
         cartData: cart,
     })
     await user.save();
     const data = {
-        user: user.id,
+        id: user.id,
 
     }
-    const token = jwt.sign(data, '')
+    const token = jwt.sign(data, 'secret_ecom')
+    res.json({success: true, token})
 })
 
 app.listen(port, (error) => {
@@ -127,6 +128,22 @@ app.listen(port, (error) => {
         )
     } else {
         console.log("Error: " + error)
+    }
+})
+// Creating endpoint for user login
+app.post('/login', async (req, res) => {
+    let user = await Users.findOne({email: req.body.email});
+    if (user) {
+        const passCompare = req.body.password === user.password;
+        if (passCompare) {
+            const data = {user: {id: user.id}}
+            const token = jwt.sign(data, 'secret_ecom');
+            res.json({success: true, token})
+        } else {
+            res.json({success: false, error: 'Wrong password'})
+        }
+    } else {
+        res.json({success: false, error: "Wrong Email id"})
     }
 })
 
