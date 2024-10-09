@@ -10,15 +10,31 @@ const LoginSignup = () => {
         email: '',
     })
     const Login = () => {
-        console.log('Logging in...');
+        console.log('Logging in...', formData);
 
     };
     const changeHandler = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     }
 
-    const SignUp = () => {
-        console.log('Signing up...');
+    const SignUp = async () => {
+        console.log('Signing up...', formData);
+        let responseData;
+        await fetch('http://localhost:4000/signup', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify(formData)
+        }).then(res => res.json()).then((data) => {
+            responseData = data
+        })
+        if (responseData.success) {
+            localStorage.setItem('auth-token', responseData.token);
+            window.location.replace('/');
+        }
 
     };
     const [state, setState] = useState("Login")
@@ -28,11 +44,17 @@ const LoginSignup = () => {
                 <h1>{state}</h1>
                 <div className="login-signup-fields">
                     {state === 'SignUp' ?
-                        <input onChange={() => {
-                            changeHandler(e)
-                        }} name={'username'} value={''} type={'text'} placeholder={'Your Name'}/> : <></>}
-                    <input type={'email'} placeholder={'Your Email'}/>
-                    <input type={'password'} placeholder={'Your Password'}/>
+                        <input onChange={
+                            changeHandler
+                        } name={'username'} value={formData.username} type={'text'}
+                               placeholder={'Your Name'}/> : <></>}
+                    <input type={'email'} name={'email'} value={formData.email} onChange={
+                        changeHandler
+                    } placeholder={'Your Email'}/>
+                    <input type={'password'} name={'password'} value={formData.password} onChange={
+                        changeHandler
+                    }
+                           placeholder={'Your Password'}/>
                 </div>
                 <button onClick={() => {
                     state === 'Login' ? Login() : SignUp()
