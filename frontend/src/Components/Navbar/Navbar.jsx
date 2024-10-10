@@ -44,9 +44,15 @@ function Navbar(props) {
             </li>
         </ul>
         <ul className="nav-login-cart">
-            < Link to={'/login'}>
-                <button type="button" className="btn btn-secondary rounded-pill" onClick={scrollDown}>Login</button>
-            </Link>
+            {
+                localStorage.getItem('auth-token') ? <button onClick={() => {
+                    localStorage.removeItem('auth-token');
+                    window.location.replace('/');
+                }} type="button" className="btn btn-secondary rounded-pill">Logout</button> : < Link to={'/login'}>
+                    <button type="button" className="btn btn-secondary rounded-pill" onClick={scrollDown}>Login</button>
+                </Link>
+            }
+
             <Link to='/cart'> <img src={cart_icon} alt="" className=""/>
 
             </Link>
