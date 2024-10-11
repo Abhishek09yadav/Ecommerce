@@ -27,7 +27,8 @@ const LoginSignup = () => {
             localStorage.setItem('auth-token', responseData.token);
             window.location.replace('/');
         } else {
-            alert(responseData.errors);
+            alert(responseData.error);
+            console.log('responseData', responseData);
         }
     };
     const changeHandler = (e) => {
@@ -52,7 +53,8 @@ const LoginSignup = () => {
             localStorage.setItem('auth-token', responseData.token);
             window.location.replace('/');
         } else {
-            alert(responseData.errors);
+            alert(responseData.error);
+            console.log('responseData', responseData);
         }
 
     };
@@ -67,7 +69,7 @@ const LoginSignup = () => {
                             changeHandler
                         } name={'username'} value={formData.username} type={'text'}
                                placeholder={'Your Name'}/> : <></>}
-                    <input type={'email'} name={'email'} value={formData.email} onChange={
+                    <input required type={'email'} name={'email'} value={formData.email} onChange={
                         changeHandler
                     } placeholder={'Your Email'}/>
                     <input type={'password'} name={'password'} value={formData.password} onChange={

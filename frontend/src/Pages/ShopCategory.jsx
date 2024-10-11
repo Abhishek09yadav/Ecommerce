@@ -17,16 +17,21 @@ const ShopCategory = (props) => {
                 <span className={'shopcategory-sort'}>Sort by <img src={dropdown_icon} alt="dropdown_icon"/></span>
             </div>
             <div className="shopcategory-products">
-                {all_product.map((item, i) => {
-                    if (props.category === item.category) {
-                        return <Item key={i} id={item.id} name={item.name}
-                                     image={item.image} new_price={item.new_price}
-                                     old_price={item.old_price}/>
-                    } else {
-                        return null
-                    }
-
-                })}
+                {all_product && all_product.length > 0 ? (
+                    all_product.map((item, i) => {
+                        if (props.category === item.category) {
+                            return (
+                                <Item key={i} id={item.id} name={item.name}
+                                      image={item.image} new_price={item.new_price}
+                                      old_price={item.old_price}/>
+                            );
+                        } else {
+                            return null;
+                        }
+                    })
+                ) : (
+                    <p>No products found</p> // Fallback in case of no products
+                )}
             </div>
             <button className={'btn btn-sm shopcategory-loadmore'}>Explore more</button>
         </div>
