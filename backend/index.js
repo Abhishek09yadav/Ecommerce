@@ -146,6 +146,13 @@ app.post('/login', async (req, res) => {
         res.json({success: false, error: "Wrong Email id"})
     }
 })
+// creating endpoint for newCollection data
+app.get('/newCollection', async (req, res) => {
+    let products = await Product.find({});
+    let newCollection = products.slice(1).slice(-8);
+    console.log("newCollection", newCollection);
+    res.send(newCollection);
+})
 
 // creating upload
 app.use('/images', express.static('upload/images'));
