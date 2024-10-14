@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './NewCollections.css'
-// import new_collections from "../Assets/new_collections";
+import new_collections2 from "../Assets/new_collections";
 import Item from "../item/item";
 
 
@@ -10,7 +10,7 @@ const NewCollections = () => {
         const fetchData = async () => {
             const res = await fetch('http://localhost:4000/newCollection');
             const data = await res.json();
-            setNewCollections(data)
+            setNewCollections([...data, ...new_collections2.slice(0, 3)])
 
         };
         fetchData();
