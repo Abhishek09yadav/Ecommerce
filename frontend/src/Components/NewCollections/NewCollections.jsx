@@ -15,7 +15,7 @@ const NewCollections = () => {
         };
         fetchData();
     }, [])
-    console.log('data from newcollections', new_collections);
+    // console.log('data from newcollections', new_collections);
 
     return (
         <div className={'NewCollections'}>

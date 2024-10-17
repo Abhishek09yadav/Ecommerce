@@ -159,8 +159,27 @@ app.get('/popularInWomen', async (req, res) => {
     let popular_in_women = products.slice(0, 4);
     res.send(popular_in_women);
 })
-// creating endpoint for adding product in cart
-app.post('/addtocart', async (req, res) => {
+//creating middleware to fetch user
+const fetchUser = async (req, res, next) => {
+    const token = req.header('auth-token');
+    if (!token) {
+        res.status(401).json({success: false, error: 'No token provided'});
+    } else {
+        try {
+            const data = jwt.verify(token, 'secret_ecom');
+            req.user = data.user;
+            next();
+        } catch (e) {
+            res.status(401).send({success: false, error: 'token validation failed'});
+        }
+    }
+}
+// creating endpoint for adding product in cartdata
+app.post('/addtocart', fetchUser, async (req, res) => {
+    // console.log('add to cart  ', req.body, req.user);
+    console.log('Headers:', req.headers);
+    console.log('Body:', req.body);
+    console.log('User:', req.user);
 })
 
 // creating upload

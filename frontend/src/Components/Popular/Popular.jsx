@@ -11,7 +11,7 @@ const Popular = () => {
         const fetchData = async () => {
             const data = await fetch("http://localhost:4000/popularInWomen");
 
-            console.log('data from popular in women ->', data);
+            // console.log('data from popular in women ->', data);
             const res = await data.json();
             setData_product((prevData) => [...res, ...data_product2.slice(0, 3)]);
         }
