@@ -180,8 +180,21 @@ app.post('/addtocart', fetchUser, async (req, res) => {
     console.log('Headers:', req.headers);
     console.log('Body:', req.body);
     console.log('User:', req.user);
+    console.log('added to cart: product id:', req.body.itemId)
+    let userData = await Users.findOne({_id: req.user.id});
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData})
+    res.send({success: true, message: "Added to cart"})
 })
 
+// creating endpoint for removing product in cartdata
+app.post('/removefromcart', fetchUser, async (req, res) => {
+    let userData = await Users.findOne({_id: req.user.id});
+    console.log('removed from cart: product id:', req.body.itemId)
+    userData.cartData[req.body.itemId] > 0 ? userData.cartData[req.body.itemId] -= 1 : '';
+    await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData})
+    res.send({success: true, message: "Removed from cart"})
+})
 // creating upload
 app.use('/images', express.static('upload/images'));
 app.post("/upload", upload.single("product"), (req, res) => {
