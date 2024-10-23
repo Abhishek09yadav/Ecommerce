@@ -6,16 +6,20 @@ export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
 
+    const authToken = localStorage.getItem("auth-token");
     const [all_product, setAll_Product] = useState([]);
     const getDefaultCart = () => {
-        const savedCart = localStorage.getItem("cartItems");
-        if (savedCart) {
-            return JSON.parse(savedCart);
-        }
+        // const savedCart = localStorage.getItem("cartItems");
+        // if (savedCart) {
+        //     try {
+        //         return JSON.parse(savedCart);
+        //     } catch (error) {
+        //         console.error("Error parsing saved cart:", error);
+        //     }
+        // }
         let cart = {}
-        for (let index = 0; index < 300 + 1; index++) {
+        for (let index = 0; index <= 300; index++) {
             cart[index] = 0;
-
         }
         return cart;
     }
@@ -25,6 +29,18 @@ const ShopContextProvider = (props) => {
             const data = await response.json();
             setAll_Product([...data, ...all_product2
             ]);
+
+            if (authToken) {
+                fetch("http://localhost:4000/getcart", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        'auth-token': authToken,
+                        contentType: "application/json",
+                    },
+                    body: "",
+                }).then(res => res.json().then(data => setCartItems(data)))
+            }
         }
         fetchProducts();
     }, []);
@@ -36,7 +52,7 @@ const ShopContextProvider = (props) => {
             ...prev, [itemId]: prev[itemId] + 1
         }))
         // console.log('cartItems', cartItems);
-        if (localStorage.getItem("auth-token")) {
+        if (authToken) {
             fetch('http://localhost:4000/addtocart', {
                 method: 'POST',
                 headers: {
@@ -69,7 +85,7 @@ const ShopContextProvider = (props) => {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
-                    'auth-token': `${localStorage.getItem("auth-token")}`,
+                    'auth-token': authToken,
                     'Content-Type': 'application/json',
 
                 },
@@ -79,6 +95,8 @@ const ShopContextProvider = (props) => {
             })
         }
     }
+
+
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {

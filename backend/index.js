@@ -195,6 +195,14 @@ app.post('/removefromcart', fetchUser, async (req, res) => {
     await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData})
     res.send({success: true, message: "Removed from cart"})
 })
+
+// creating  endpoint for getting cart items
+app.post('/getcart', fetchUser, async (req, res) => {
+    console.log("GetCart is called");
+    let userData = await Users.findOne({_id: req.user.id});
+    res.json(userData.cartData);
+
+})
 // creating upload
 app.use('/images', express.static('upload/images'));
 app.post("/upload", upload.single("product"), (req, res) => {
