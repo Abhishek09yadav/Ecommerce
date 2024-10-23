@@ -4,12 +4,12 @@ import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
 import arrow_icon from "../Assets/arrow.png";
 import {ShopContext} from "../../Context/ShopContext";
-import {useAlert} from 'react-alert'
+// import {useAlert} from 'react-alert'
 
 const ProductDisplay = (props) => {
     // console.log(props)
     const {addToCart} = useContext(ShopContext);
-    const alert = useAlert()
+    // const alert = useAlert()
     const {product} = props;
     return (
         <div className='productdisplay'>
@@ -62,7 +62,7 @@ const ProductDisplay = (props) => {
                 {(<button type="button" className="btn btn-lg btn-danger "
                           style={{backgroundColor: '#ff4141', color: '#fff'}} onClick={() => {
 
-                    localStorage.getItem('auth-token') ? addToCart(product.id) : alert.show('please sign in to continue');
+                    localStorage.getItem('auth-token') ? addToCart(product.id) : alert('please sign in to continue');
                 }}> Add To Cart{' '}
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                          className="bi bi-cart4" viewBox="0 0 16 16">
