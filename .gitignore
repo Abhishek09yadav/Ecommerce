@@ -73,7 +73,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
+backend/.env
 .env.development.local
 .env.test.local
 .env.production.local
@@ -142,7 +142,7 @@ coverage
 build
 
 # misc
-.env
+backend/.env
 .DS_Store
 .env.local
 .env.development.local

@@ -12,14 +12,7 @@ const ShopContextProvider = (props) => {
     const [all_product, setAll_Product] = useState([]);
 
     const getDefaultCart = () => {
-        // const savedCart = localStorage.getItem("cartItems");
-        // if (savedCart) {
-        //     try {
-        //         return JSON.parse(savedCart);
-        //     } catch (error) {
-        //         console.error("Error parsing saved cart:", error);
-        //     }
-        // }
+
         let cart = {}
         for (let index = 0; index <= 300; index++) {
             cart[index] = 0;
