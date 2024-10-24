@@ -1,8 +1,8 @@
 import React, {createContext, useEffect, useState} from 'react';
 import all_product2 from "../Components/Assets/all_product";
 //import item from "../Components/item/item";
-
-const url = "https://ecommerce-8vpv.onrender.com";
+const url = process.env.REACT_APP_API_URL;
+//const url = "https://ecommerce-8vpv.onrender.com";
 //const url = "http://localhost:4000";
 
 export const ShopContext = createContext(null);

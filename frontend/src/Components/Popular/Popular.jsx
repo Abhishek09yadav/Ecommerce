@@ -9,7 +9,7 @@ const Popular = () => {
     const [data_product, setData_product] = React.useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const data = await fetch("http://localhost:4000/popularInWomen");
+            const data = await fetch(`${process.env.REACT_APP_API_URL}/popularInWomen`);
 
             // console.log('data from popular in women ->', data);
             const res = await data.json();

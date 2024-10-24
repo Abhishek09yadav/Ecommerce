@@ -8,7 +8,7 @@ const NewCollections = () => {
     const [new_collections, setNewCollections] = React.useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch('http://localhost:4000/newCollection');
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/newCollection`);
             const data = await res.json();
             setNewCollections([...data, ...new_collections2.slice(0, 3)])
 
