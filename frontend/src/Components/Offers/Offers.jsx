@@ -1,7 +1,7 @@
 import React from 'react';
 import './Offers.css'
 import exclusive_image from '../Assets/exclusive_image.png'
-import Button from '@mui/material/Button';
+//import Button from '@mui/material/Button';
 import arrow_icon from '../Assets/arrow.png'
 
 const Offers = () => {
