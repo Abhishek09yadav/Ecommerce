@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
 import './CartItems.css'
-import all_product from "../Assets/all_product";
+//import all_product from "../Assets/all_product";
 import {ShopContext} from "../../Context/ShopContext";
 import remove_icon from "../Assets/cart_cross_icon.png";
-import Button from "@mui/material/Button";
+//import Button from "@mui/material/Button";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
 
 const CartItems = () => {
-    const {getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart} =
+    const {getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart} =
         useContext(ShopContext);
     return (
         <div className={'CartItems'}>
@@ -41,7 +41,7 @@ const CartItems = () => {
                             </button>
 
                             <p>${e.new_price * cartItems[e.id]}</p>
-                            <img className="CartItems-Remove-Icon" src={remove_icon} onClick={() => {
+                            <img className="CartItems-Remove-Icon" alt={''} src={remove_icon} onClick={() => {
                                 removeFromCart(e.id)
                             }}/>
 

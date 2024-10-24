@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import './ProductDisplay.css';
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
-import arrow_icon from "../Assets/arrow.png";
+//import arrow_icon from "../Assets/arrow.png";
 import {ShopContext} from "../../Context/ShopContext";
 // import {useAlert} from 'react-alert'
 

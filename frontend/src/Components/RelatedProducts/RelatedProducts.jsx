@@ -1,6 +1,6 @@
 import './RelatedProducts.css'
 import React from 'react';
-import data_products from '../Assets/data'
+//import data_products from '../Assets/data'
 import data_product from "../Assets/data";
 import Item from "../item/item";
 

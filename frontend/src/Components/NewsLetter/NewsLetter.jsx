@@ -1,6 +1,6 @@
 import React from 'react';
 import './NewsLetter.css'
-import arrow_icon from "../Assets/arrow.png";
+//import arrow_icon from "../Assets/arrow.png";
 
 const NewsLetter = () => {
     return (

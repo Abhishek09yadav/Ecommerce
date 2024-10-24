@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars, faChevronRight, faSquareCaretRight} from '@fortawesome/free-solid-svg-icons';
+import {faSquareCaretRight} from '@fortawesome/free-solid-svg-icons';
 
 
 function Navbar(props) {
@@ -23,7 +23,7 @@ function Navbar(props) {
     }
     return <div className="navbar">
         <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
-            <img src={logo}/>
+            <img src={logo} alt="logo"/>
             <p>SHOPPER</p>
         </Link>
         <FontAwesomeIcon onClick={dropdown_toggle} className={'nav-dropdown'} icon={faSquareCaretRight}/>

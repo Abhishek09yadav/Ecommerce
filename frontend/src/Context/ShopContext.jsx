@@ -1,9 +1,9 @@
 import React, {createContext, useEffect, useState} from 'react';
 import all_product2 from "../Components/Assets/all_product";
-import item from "../Components/item/item";
+//import item from "../Components/item/item";
 
-//const url = "https://ecommerce-8vpv.onrender.com";
-const url = "http://localhost:4000";
+const url = "https://ecommerce-8vpv.onrender.com";
+//const url = "http://localhost:4000";
 
 export const ShopContext = createContext(null);
 
@@ -45,7 +45,7 @@ const ShopContextProvider = (props) => {
             }
         }
         fetchProducts();
-    }, []);
+    }, [authToken]);
 
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
