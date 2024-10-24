@@ -22,10 +22,10 @@ function Navbar(props) {
         e.target.classList.toggle('open');
     }
     return <div className="navbar">
-        <div className="nav-logo">
+        <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
             <img src={logo}/>
             <p>SHOPPER</p>
-        </div>
+        </Link>
         <FontAwesomeIcon onClick={dropdown_toggle} className={'nav-dropdown'} icon={faSquareCaretRight}/>
 
         <ul ref={menuRef} className="nav-menu">
