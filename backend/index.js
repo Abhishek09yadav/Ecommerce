@@ -1,5 +1,7 @@
-const port = process.env.PORT || 4000;
-const baseUrl = process.env.BASE_URL || `http://localhost:${port}`;
+require('dotenv').config();
+
+const port = process.env.PORT;
+const baseUrl = process.env.BASE_URL;
 
 
 const express = require('express');
