@@ -13,9 +13,6 @@ import LoginSignup from "./Pages/LoginSignup";
 import Cart from "./Pages/Cart";
 
 
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
-
 function App() {
     return (
         <div>
