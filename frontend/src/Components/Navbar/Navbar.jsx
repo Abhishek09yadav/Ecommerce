@@ -3,7 +3,7 @@ import "./Navbar.css"
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+//import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
