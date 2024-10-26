@@ -3,11 +3,12 @@ import "./Navbar.css"
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Hamburger_Menu from '../Admin Panel Assets/Hamburger_Menu.svg';
 //import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSquareCaretRight} from '@fortawesome/free-solid-svg-icons';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {faSquareCaretRight} from '@fortawesome/free-solid-svg-icons';
 
 
 function Navbar(props) {
@@ -26,13 +27,13 @@ function Navbar(props) {
             <img src={logo} alt="logo"/>
             <p>SHOPPER</p>
         </Link>
-        <FontAwesomeIcon onClick={dropdown_toggle} className={'nav-dropdown'} icon={faSquareCaretRight}/>
+        <img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu}/>
 
         <ul ref={menuRef} className="nav-menu">
             <li onClick={() => {
                 setmenu("shop")
             }}><Link to={'/'}>Shop</Link> {menu === 'shop' ? <hr/> : <></>}</li>
-            <li onClick={() => setmenu('mens')}><Link to='/mens'>Men</Link> {menu === 'men' ? <hr></hr> : <></>}
+            <li onClick={() => setmenu('mens')}><Link to='/mens'>Men</Link> {menu === 'mens' ? <hr></hr> : <></>}
             </li>
             <li onClick={() => {
                 setmenu("womens")

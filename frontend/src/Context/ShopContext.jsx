@@ -31,7 +31,7 @@ const ShopContextProvider = (props) => {
                     headers: {
                         Accept: "application/json",
                         'auth-token': authToken,
-                        contentType: "application/json",
+                        'Content-Type': "application/json",
                     },
                     body: "",
                 }).then(res => res.json().then(data => setCartItems(data)))
