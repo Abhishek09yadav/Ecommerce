@@ -4,6 +4,7 @@ import './CSS/LoginSignup.css'
 
 
 const LoginSignup = () => {
+    const url = process.env.REACT_APP_API_URL;
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -12,7 +13,7 @@ const LoginSignup = () => {
     const Login = async () => {
         console.log('Logging in...', formData);
         let responseData;
-        await fetch('http://localhost:4000/login', {
+        await fetch(`${url}/login`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -38,7 +39,7 @@ const LoginSignup = () => {
     const SignUp = async () => {
         console.log('Signing up...', formData);
         let responseData;
-        await fetch('http://localhost:4000/signup', {
+        await fetch(`${url}/signup`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
