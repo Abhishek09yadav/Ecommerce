@@ -27,7 +27,7 @@ function Navbar(props) {
             <img src={logo} alt="logo"/>
             <p>SHOPPER</p>
         </Link>
-        <img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu}/>
+        <img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu} alt={''}/>
 
         <ul ref={menuRef} className="nav-menu">
             <li onClick={() => {
