@@ -9,7 +9,7 @@ export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
     const authToken = localStorage.getItem("auth-token");
-    const [all_product, setAll_Product] = useState([]);
+    const [all_product, setAll_Product] = useState([...all_product2]);
 
     const getDefaultCart = () => {
 
