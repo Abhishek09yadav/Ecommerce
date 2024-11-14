@@ -5,7 +5,7 @@ import Item from "../item/item";
 
 
 const NewCollections = () => {
-    const [new_collections, setNewCollections] = React.useState([]);
+    const [new_collections, setNewCollections] = React.useState([...new_collections2.slice(0, 3)]);
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/newCollection`);

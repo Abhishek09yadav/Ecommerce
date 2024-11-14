@@ -6,7 +6,7 @@ import Item from "../item/item";
 
 
 const Popular = () => {
-    const [data_product, setData_product] = React.useState([]);
+    const [data_product, setData_product] = React.useState([...data_product2.slice(0, 3)]);
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetch(`${process.env.REACT_APP_API_URL}/popularInWomen`);
