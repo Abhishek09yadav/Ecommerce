@@ -11,6 +11,7 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 
 app.use(express.json());
 app.use(cors());
@@ -151,6 +152,61 @@ app.post('/login', async (req, res) => {
         res.json({success: false, error: "Wrong Email id"})
     }
 })
+// creating endpoint for otp login
+const otpStore = {}; // Temporary store for OTPs, can be replaced with a database for production
+
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'monuy8830@gmail.com', // Replace with your email
+        pass: 'vljwjnavutkxfqyu', // Replace with your app password
+    },
+});
+
+// Generate and send OTP
+app.post('/sendOTP', async (req, res) => {
+    const {email} = req.body;
+    const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
+
+    otpStore[email] = otp; // Store the OTP temporarily
+    console.log(`OTP for ${email}: ${otp}`); // Log OTP for testing purposes
+
+    const mailOptions = {
+        from: 'monuy8830@gmail.com',
+        to: email,
+        subject: 'Your OTP for Login',
+        text: `Your OTP is ${otp}. It is valid for 10 minutes.`,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.json({success: true, message: 'OTP sent successfully'});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({success: false, message: 'Failed to send OTP'});
+    }
+});
+
+// Verify OTP and login user
+app.post('/verifyOTP', async (req, res) => {
+    const {email, otp} = req.body;
+
+    if (otpStore[email] && otpStore[email] == otp) {
+        delete otpStore[email]; // Remove OTP after verification
+        const user = await Users.findOne({email});
+
+        if (user) {
+            const data = {user: {id: user.id}};
+            const token = jwt.sign(data, 'secret_ecom');
+            res.json({success: true, token});
+        } else {
+            res.status(400).json({success: false, message: 'User not found. Please sign up first.'});
+        }
+    } else {
+        res.status(400).json({success: false, message: 'Invalid OTP'});
+    }
+});
 // creating endpoint for newCollection data
 app.get('/newCollection', async (req, res) => {
     let products = await Product.find({});
